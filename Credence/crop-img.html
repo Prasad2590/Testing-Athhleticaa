@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Korde Footer Preview</title>
+    <style>
+        :root {
+            --footer-text: #f3efe7;
+            --footer-text-dim: #e6e1d6;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+            background: #faf6ee;
+        }
+
+        .page-filler {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* ===== KORDE FOOTER ===== */
+        .korde-footer {
+            position: relative;
+            padding: 90px 40px 0;
+            overflow: hidden;
+            /* Replace this background-image URL with your real soil-texture photo.
+     The gradients underneath are just a fallback so it still looks
+     reasonable if the image is missing / slow to load. */
+            /* background-image:
+                url('REPLACE-WITH-SOIL-TEXTURE-IMAGE-URL.jpg'),
+                radial-gradient(circle at 20% 30%, #3a2415 0, transparent 45%),
+                radial-gradient(circle at 70% 60%, #2a180d 0, transparent 50%),
+                radial-gradient(circle at 45% 80%, #1f130a 0, transparent 55%),
+                linear-gradient(#26160c, #1a0f08);
+            background-size: cover;
+            background-position: center;
+            color: var(--footer-text);
+            clip-path: polygon(0% 6%, 4% 2%, 9% 7%, 14% 1%, 19% 5%, 24% 0%, 29% 6%, 34% 3%,
+                    39% 8%, 44% 2%, 49% 6%, 54% 1%, 59% 5%, 64% 0%, 69% 7%, 74% 2%,
+                    79% 6%, 84% 1%, 89% 5%, 94% 2%, 100% 6%,
+                    100% 100%, 0% 100%); */
+        }
+
+        /* sprout poking up above the torn edge */
+        .korde-sprout {
+            position: absolute;
+            top: -46px;
+            left: 23%;
+            width: 10px;
+            height: 70px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .korde-sprout svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .korde-footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 40px;
+            padding-bottom: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .korde-footer-brand .korde-footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .korde-footer-logo img {
+            height: 100px;
+            width: auto;
+            display: block;
+        }
+
+        .korde-footer-brand p {
+            color: var(--footer-text-dim);
+            font-size: 14px;
+            line-height: 1.7;
+            max-width: 280px;
+            margin: 0;
+        }
+
+        .korde-footer-col h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin: 0 0 18px;
+            color: var(--footer-text);
+        }
+
+        .korde-footer-col ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .korde-footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .korde-footer-col a {
+            color: var(--footer-text-dim);
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .korde-footer-col a:hover {
+            color: #fff;
+        }
+
+        .korde-footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            color: var(--footer-text-dim);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .korde-footer-contact svg {
+            width: 16px;
+            height: 16px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* bottom bar: white-transparent strip, copyright left / socials right */
+        .korde-footer-bottom {
+            position: relative;
+            z-index: 1;
+            /*background: rgba(255, 255, 255, .14);*/
+            backdrop-filter: blur(2px);
+            border-top: 1px solid rgba(255, 255, 255, .18);
+        }
+
+        .korde-footer-bottom-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 18px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .korde-footer-bottom p {
+            margin: 0;
+            font-size: 13px;
+            color: var(--footer-text-dim);
+        }
+
+        .korde-footer-social {
+            display: flex;
+            gap: 10px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .korde-footer-social a {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .16);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: background .2s ease;
+        }
+
+        .korde-footer-social a:hover {
+            background: rgba(255, 255, 255, .3);
+        }
+
+        .korde-footer-social svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        @media (max-width:900px) {
+            .korde-footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .korde-footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width:560px) {
+            .korde-footer-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .korde-footer-bottom-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="page-filler">↓ scroll to see the footer ↓</div> -->
+
+    <footer class="korde-footer">
+        <div class="korde-footer-inner">
+            <div class="korde-footer-brand">
+                <a href="#" class="korde-footer-logo">
+                    <!-- swap for your real logo, or use <?php the_custom_logo(); ?> in header/footer.php -->
+                    <img src="https://web.rocketsalestracker.com/wp-content/uploads/2026/08/korde-logo-new-1-1.png"
+                        alt="Korde Global Trade logo">
+                </a>
+                <p>Biological and organic agricultural solutions designed around healthier soil, better nutrient availability, crop-specific management, and sustainable farming.</p>
+            </div>
+
+            <div class="korde-footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="https://web.rocketsalestracker.com/">Home</a></li>
+                    <li><a href="https://web.rocketsalestracker.com/about-us/">About Us</a></li>
+                    <li><a href="https://web.rocketsalestracker.com/technology/">Technology</a></li>
+                    <li><a href="https://web.rocketsalestracker.com/products/">Products</a></li>
+                    <li><a href="https://web.rocketsalestracker.com/solutions/">Solutions</a></li>
+                    <li><a href="https://web.rocketsalestracker.com/results/">Results</a></li>
+                    <li><a href="https://web.rocketsalestracker.com/contact/">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="korde-footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+
+            <div class="korde-footer-col">
+                <h4>Contact</h4>
+                <ul class="korde-footer-contact">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16v16H4z" />
+                            <path d="M4 6l8 7 8-7" />
+                        </svg>
+                        <span>info@kordeglobal.com</span>
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 21s7-7.2 7-12a7 7 0 10-14 0c0 4.8 7 12 7 12z" />
+                            <circle cx="12" cy="9" r="2.5" />
+                        </svg>
+                        <span>Global Headquarters, Agri-Tech Park</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="korde-footer-bottom">
+            <div class="korde-footer-bottom-inner">
+                <p>&copy; <span id="kordeYear"></span> Korde Global Trade . All Rights Reserved.</p>
+                <ul class="korde-footer-social">
+                    <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M13 22v-9h3l.5-4H13V6.5C13 5.4 13.4 4.6 15 4.6h1.6V1.1C16.3 1 15.1.9 13.8.9 11 .9 9 2.6 9 5.8V9H6v4h3v9h4z" />
+                            </svg></a></li>
+                    <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="5" />
+                                <circle cx="12" cy="12" r="4" />
+                                <circle cx="17.5" cy="6.5" r="1" />
+                            </svg></a></li>
+                    <li><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M4.98 3.5C4.98 4.9 3.9 6 2.5 6S0 4.9 0 3.5 1.1 1 2.5 1s2.48 1.1 2.48 2.5zM.5 8h4V23h-4V8zm7.5 0h3.8v2.05h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V23h-4v-6.9c0-1.65-.03-3.77-2.3-3.77-2.3 0-2.65 1.8-2.65 3.65V23h-4V8z" />
+                            </svg></a></li>
+                    <li><a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23 12s0-3.5-.45-5.2c-.25-.9-.98-1.6-1.88-1.86C18.9 4.5 12 4.5 12 4.5s-6.9 0-8.67.44c-.9.26-1.63.96-1.88 1.86C1 8.5 1 12 1 12s0 3.5.45 5.2c.25.9.98 1.6 1.88 1.86C5.1 19.5 12 19.5 12 19.5s6.9 0 8.67-.44c.9-.26 1.63-.96 1.88-1.86C23 15.5 23 12 23 12z" />
+                                <path d="M9.75 15.5v-7l6 3.5-6 3.5z" fill="#fff" />
+                            </svg></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('kordeYear').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rhodopotash – Korde Global Trade</title>
+    <script src="./vendor/react.js"></script>
+    <script src="./vendor/react-dom.js"></script>
+    <script src="./support.js"></script>
+</head>
+
+<body>
+    <x-dc>
+        <helmet>
+            <link rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Roboto:wght@400;500&amp;display=swap">
+            <style>
+                body {
+                    margin: 0
+                }
+
+                a {
+                    color: inherit;
+                    text-decoration: none
+                }
+
+                .pg {
+                    font-family: 'Roboto', sans-serif;
+                    color: #1f2e27;
+                    background: #ece3d0
+                }
+
+                .pg h1,
+                .pg h2,
+                .pg h3,
+                .pg h4,
+                .pg .pop {
+                    font-family: 'Poppins', sans-serif
+                }
+
+                .btn {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-height: 44px;
+                    padding: 0 26px;
+                    border-radius: 999px;
+                    background: #1f2e27;
+                    color: #f6efe0;
+                    font: 600 15px 'Poppins', sans-serif
+                }
+
+                .btn.amber {
+                    background: #e0a93b;
+                    color: #1f2e27
+                }
+
+                .fchip {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 8px;
+                    width: 112px;
+                    text-align: center;
+                    font: 500 12px/1.3 'Poppins', sans-serif;
+                    color: #1f2e27
+                }
+
+                .fchip .ic {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    background: #2f4a3c;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center
+                }
+
+                .crop {
+                    position: relative;
+                    height: 210px;
+                    border-radius: 20px;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    padding: 16px;
+                    box-sizing: border-box
+                }
+
+                .crop .ph {
+                    position: absolute;
+                    inset: 0;
+                    display: flex;
+                    align-items: flex-start;
+                    justify-content: flex-end;
+                    padding: 12px;
+                    font: 500 10px 'Poppins', sans-serif;
+                    letter-spacing: .08em;
+                    text-transform: uppercase;
+                    opacity: .75
+                }
+
+                .crop .nm {
+                    position: relative;
+                    font: 600 19px 'Poppins', sans-serif;
+                    color: #fff7e6
+                }
+
+                .crop .sub {
+                    position: relative;
+                    font: 400 12px 'Roboto', sans-serif;
+                    color: #e7dcc3
+                }
+
+                .card {
+                    border-radius: 28px;
+                    padding: 32px;
+                    box-sizing: border-box
+                }
+
+                .card h3 {
+                    margin: 14px 0 4px;
+                    font-size: 13px;
+                    letter-spacing: .14em;
+                    text-transform: uppercase
+                }
+
+                .card h4 {
+                    margin: 0 0 18px;
+                    font-size: 22px;
+                    line-height: 1.25
+                }
+
+                .card ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 11px;
+                    font-size: 15px;
+                    line-height: 1.4
+                }
+
+                .card li {
+                    display: flex;
+                    gap: 10px;
+                    align-items: flex-start
+                }
+
+                .card li:before {
+                    content: "";
+                    flex: none;
+                    width: 8px;
+                    height: 8px;
+                    margin-top: 7px;
+                    border-radius: 2px;
+                    background: currentColor;
+                    opacity: .55;
+                    transform: rotate(45deg)
+                }
+
+                .badge {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 14px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center
+                }
+
+                .spec {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 13px 0;
+                    border-bottom: 1px solid #4d6b5b;
+                    font-size: 15px
+                }
+
+                .spec b {
+                    font-family: 'Poppins', sans-serif;
+                    color: #e0a93b
+                }
+
+                .lbl {
+                    font: 500 12px 'Poppins', sans-serif;
+                    letter-spacing: .12em;
+                    text-transform: uppercase;
+                    color: #4d6b5b
+                }
+            </style>
+        </helmet>
+        <div class="pg">
+
+            <!-- NAV -->
+            <div style="background:#1f2e27;padding:20px 48px">
+                <div
+                    style="max-width:1200px;margin:0 auto;background:#ece3d0;border-radius:999px;padding:10px 14px 10px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap">
+                    <span class="pop" style="font-weight:700;font-size:20px;color:#2f4a3c;letter-spacing:.02em">KORDE
+                        <span style="font-weight:500;font-size:11px;letter-spacing:.14em">GLOBAL TRADE</span></span>
+                    <nav class="pop" style="display:flex;gap:30px;font-weight:500;font-size:15px;flex-wrap:wrap"><a
+                            href="#">Home</a><a href="#">About</a><a href="#">Technology</a><a href="#">Products</a><a
+                            href="#">Solutions</a><a href="#">Results</a><a href="#">Contact</a></nav>
+                    <a class="btn" href="#">Get a quote</a>
+                </div>
+            </div>
+
+            <!-- HERO -->
+            <div
+                style="max-width:1200px;margin:0 auto;padding:56px 48px 64px;display:flex;gap:48px;flex-wrap:wrap;align-items:stretch">
+                <div
+                    style="flex:1 1 480px;min-height:520px;border-radius:32px;background:#fff;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden">
+                    <div class="pop"
+                        style="font-size:13px;color:#8a9a90;text-align:center;line-height:1.6;padding:24px">PRODUCT
+                        PHOTO<br>Rhodopotash granules in glass dish<br><span style="font-size:11px">(swap in after
+                            photoshoot)</span></div>
+                    <div
+                        style="position:absolute;top:18px;right:18px;background:#f6efe0;border-radius:20px;padding:14px 12px 12px;box-shadow:0 2px 0 #d9ccb0;display:flex;gap:6px">
+                        <div class="fchip">
+                            <div class="ic"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#f6efe0"
+                                    stroke-width="1.8" stroke-linecap="round">
+                                    <path
+                                        d="M5 24h22M8 24c0-5 3-9 8-9s8 4 8 9M10 12h.01M16 9h.01M22 12h.01M13 6h.01M19 6h.01">
+                                    </path>
+                                </svg></div>Soluble powder
+                        </div>
+                        <div class="fchip">
+                            <div class="ic"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="#f6efe0"
+                                    stroke-width="1.8" stroke-linecap="round">
+                                    <path
+                                        d="M4 8h24M8 8v4M16 8v4M24 8v4M8 17c0 2-1.5 3-1.5 4.5a1.5 1.5 0 003 0C9.5 20 8 19 8 17zM16 17c0 2-1.5 3-1.5 4.5a1.5 1.5 0 003 0C17.5 20 16 19 16 17zM24 17c0 2-1.5 3-1.5 4.5a1.5 1.5 0 003 0C25.5 20 24 19 24 17z">
+                                    </path>
+                                </svg></div>Drip irrigation compatible
+                        </div>
+                    </div>
+                </div>
+
+                <div style="flex:1 1 440px;display:flex;flex-direction:column;justify-content:center">
+                    <span class="pop"
+                        style="align-self:flex-start;background:#2f4a3c;color:#f6efe0;font-weight:600;font-size:14px;padding:8px 18px;border-radius:999px">Bio-stimulant</span>
+                    <h1 style="margin:16px 0 8px;font-size:64px;line-height:1.05;color:#1f2e27">Rhodo<span
+                            style="color:#b9791c">potash</span></h1>
+                    <p style="margin:0 0 28px;font-size:20px;line-height:1.5;color:#3d4d44;max-width:460px">Organic
+                        potash from sustainably harvested Australian red algae.</p>
+
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+                        <div style="background:#d9ccb0;border-radius:18px;padding:16px 20px">
+                            <div class="lbl">Product code</div>
+                            <div class="pop" style="font-weight:700;font-size:20px;margin-top:4px">RHODO</div>
+                        </div>
+                        <div style="background:#d9ccb0;border-radius:18px;padding:16px 20px">
+                            <div class="lbl">Product type</div>
+                            <div class="pop" style="font-weight:700;font-size:20px;margin-top:4px">Organic Potash</div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top:12px;background:#2f4a3c;border-radius:18px;padding:18px 20px;color:#f6efe0">
+                        <div class="lbl" style="color:#e0a93b">Formulations available</div>
+                        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+                            <span class="pop"
+                                style="background:#e0a93b;color:#1f2e27;font-weight:600;font-size:14px;padding:8px 16px;border-radius:999px">Soluble
+                                powder</span>
+                            <span class="pop"
+                                style="border:1.5px solid #8fb59f;font-weight:500;font-size:14px;padding:6.5px 16px;border-radius:999px">Drip-compatible</span>
+                        </div>
+                        <div class="lbl" style="color:#e0a93b;margin-top:16px">Pack sizes</div>
+                        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px">
+                            <span class="pop"
+                                style="border:1.5px solid #8fb59f;font-size:13px;padding:5px 14px;border-radius:999px">100
+                                g</span>
+                            <span class="pop"
+                                style="border:1.5px solid #8fb59f;font-size:13px;padding:5px 14px;border-radius:999px">500
+                                g</span>
+                            <span class="pop"
+                                style="border:1.5px solid #8fb59f;font-size:13px;padding:5px 14px;border-radius:999px">1
+                                kg</span>
+                            <span class="pop"
+                                style="border:1.5px solid #8fb59f;font-size:13px;padding:5px 14px;border-radius:999px">10
+                                kg</span>
+                        </div>
+                    </div>
+                    <div style="margin-top:24px"><a class="btn amber" href="#">Get a quote</a></div>
+                </div>
+            </div>
+
+            <!-- CROPS -->
+            <div style="background:#1f2e27;padding:64px 48px">
+                <div style="max-width:1200px;margin:0 auto">
+                    <div
+                        style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px">
+                        <div>
+                            <div class="lbl" style="color:#e0a93b">Crops that benefit</div>
+                            <h2 style="margin:8px 0 0;font-size:38px;line-height:1.15;color:#f6efe0">Grown for your
+                                field</h2>
+                        </div>
+                        <p style="margin:0;max-width:380px;color:#cdbf9f;font-size:16px;line-height:1.5">Rhodopotash is
+                            used across field crops, vegetables and orchard fruits.</p>
+                    </div>
+                    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px">
+                        <div class="crop" style="background:#5a7a62">
+                            <div class="ph" style="color:#e7dcc3">Crop photo</div>
+                            <div class="nm">Cotton</div>
+                            <div class="sub">Field crop</div>
+                        </div>
+                        <div class="crop" style="background:#b9791c">
+                            <div class="ph" style="color:#fff7e6">Crop photo</div>
+                            <div class="nm">Soyabean</div>
+                            <div class="sub">Field crop</div>
+                        </div>
+                        <div class="crop" style="background:#7d8f45">
+                            <div class="ph" style="color:#fff7e6">Crop photo</div>
+                            <div class="nm">Paddy</div>
+                            <div class="sub">Field crop</div>
+                        </div>
+                        <div class="crop" style="background:#9a3f2e">
+                            <div class="ph" style="color:#fff7e6">Crop photo</div>
+                            <div class="nm">Chilli</div>
+                            <div class="sub">Vegetable</div>
+                        </div>
+                        <div class="crop" style="background:#3f7a58">
+                            <div class="ph" style="color:#fff7e6">Crop photo</div>
+                            <div class="nm">Vegetables</div>
+                            <div class="sub">Vegetable</div>
+                        </div>
+                        <div class="crop" style="background:#a58a22">
+                            <div class="ph" style="color:#fff7e6">Crop photo</div>
+                            <div class="nm">Banana</div>
+                            <div class="sub">Fruit</div>
+                        </div>
+                        <div class="crop" style="background:#c0661d">
+                            <div class="ph" style="color:#fff7e6">Crop photo</div>
+                            <div class="nm">Orange</div>
+                            <div class="sub">Fruit</div>
+                        </div>
+                        <div class="crop" style="background:#d08a1e">
+                            <div class="ph" style="color:#fff7e6">Crop photo</div>
+                            <div class="nm">Mosambi</div>
+                            <div class="sub">Fruit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WHY -->
+            <div style="max-width:1200px;margin:0 auto;padding:72px 48px 24px">
+                <div class="lbl">Why Rhodopotash</div>
+                <h2 style="margin:8px 0 12px;font-size:38px;line-height:1.15;max-width:640px">Feeds the crop. Leaves the
+                    soil healthier.</h2>
+            </div>
+            <div
+                style="max-width:1200px;margin:0 auto;padding:16px 48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:20px">
+
+                <div class="card" style="background:#f6efe0;color:#1f2e27">
+                    <div class="badge" style="background:#2f4a3c"><svg width="26" height="26" viewBox="0 0 24 24"
+                            fill="none" stroke="#f6efe0" stroke-width="1.8" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"></path>
+                        </svg></div>
+                    <h3 style="color:#4d6b5b">Description</h3>
+                    <h4>Red-algae potash with trace Sulphur</h4>
+                    <ul>
+                        <li>Potash derived from sustainably harvested Australian red algae.</li>
+                        <li>Contains trace Sulphur for optimum plant nutrition.</li>
+                        <li>ECO-friendly and completely safe for all soils.</li>
+                        <li>Controls opening and closing of stomata.</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background:#2f4a3c;color:#f6efe0">
+                    <div class="badge" style="background:#e0a93b"><svg width="26" height="26" viewBox="0 0 24 24"
+                            fill="none" stroke="#1f2e27" stroke-width="1.8" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M12 21V10M12 10C12 6 9 4 5 4c0 4 2 6 7 6zM12 13c0-3 2.500-5 6-5 0 3.500-2 5-6 5z">
+                            </path>
+                        </svg></div>
+                    <h3 style="color:#e0a93b">Plant benefits</h3>
+                    <h4>Stronger, more resilient crops</h4>
+                    <ul>
+                        <li>Acts as a source of organic Potash</li>
+                        <li>Supports carbohydrate formation</li>
+                        <li>Improves yield</li>
+                        <li>Increases tolerance to drought</li>
+                        <li>Enhances nutrient absorption</li>
+                        <li>Promotes balanced growth</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background:#b9791c;color:#fff7e6">
+                    <div class="badge" style="background:#1f2e27"><svg width="26" height="26" viewBox="0 0 24 24"
+                            fill="none" stroke="#f6efe0" stroke-width="1.8" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M3 18h18M5 18c0-4 3-7 7-7s7 3 7 7M12 11V6M9 8l3-3 3 3"></path>
+                        </svg></div>
+                    <h3 style="color:#fff7e6">Soil benefits</h3>
+                    <h4>Healthy soil, less chemical Potash</h4>
+                    <ul>
+                        <li>Does not degrade soil health</li>
+                        <li>ECO-friendly and safe</li>
+                        <li>Passes through drip irrigation</li>
+                        <li>Helps cut down on chemical Potash</li>
+                        <li>Does not interfere with soil microbes</li>
+                        <li>Improves shelf life of yield</li>
+                    </ul>
+                </div>
+
+                <div class="card" style="background:#6b9e7e;color:#1f2e27">
+                    <div class="badge" style="background:#1f2e27"><svg width="26" height="26" viewBox="0 0 24 24"
+                            fill="none" stroke="#f6efe0" stroke-width="1.8" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M12 3c3 4 6 7 6 11a6 6 0 01-12 0c0-4 3-7 6-11z"></path>
+                        </svg></div>
+                    <h3>Application</h3>
+                    <h4>Powder: three ways to apply</h4>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap"><span class="pop"
+                            style="background:#1f2e27;color:#f6efe0;font-weight:500;font-size:14px;padding:8px 18px;border-radius:999px">Drenching</span><span
+                            class="pop"
+                            style="background:#1f2e27;color:#f6efe0;font-weight:500;font-size:14px;padding:8px 18px;border-radius:999px">Spraying</span><span
+                            class="pop"
+                            style="background:#1f2e27;color:#f6efe0;font-weight:500;font-size:14px;padding:8px 18px;border-radius:999px">Drip</span>
+                    </div>
+                    <div style="margin-top:22px;background:#f6efe0;border-radius:20px;padding:20px 24px">
+                        <div class="lbl">Dosage (P)</div>
+                        <div class="pop" style="font-weight:700;font-size:44px;line-height:1.1;margin-top:4px">250 g /
+                            Ha</div>
+                        <div style="font-size:14px;color:#3d4d44;margin-top:2px">500 ppm</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPECS -->
+            <div style="max-width:1200px;margin:0 auto;padding:0 48px 24px">
+                <div class="card" style="background:#1f2e27;color:#f6efe0;display:flex;gap:48px;flex-wrap:wrap">
+                    <div style="flex:1 1 300px">
+                        <div class="badge" style="background:#e0a93b"><svg width="26" height="26" viewBox="0 0 24 24"
+                                fill="none" stroke="#1f2e27" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M9 3h6M10 3v6l-5 9a2 2 0 002 3h10a2 2 0 002-3l-5-9V3"></path>
+                            </svg></div>
+                        <h3 style="color:#e0a93b">Specifications</h3>
+                        <h4>Micronutrient composition</h4>
+                        <p style="margin:0;color:#cdbf9f;font-size:15px;line-height:1.5">Stable and soluble essential
+                            micronutrients for balanced plant nutrition.</p>
+                    </div>
+                    <div style="flex:1 1 420px;align-self:center">
+                        <div class="spec"><span>Fe (Iron)</span><b>2.5%</b></div>
+                        <div class="spec"><span>Mn (Manganese)</span><b>1.0%</b></div>
+                        <div class="spec"><span>Zn (Zinc)</span><b>3.0%</b></div>
+                        <div class="spec"><span>Cu (Copper)</span><b>0.1%</b></div>
+                        <div class="spec"><span>Mo (Molybdenum)</span><b>0.1%</b></div>
+                        <div class="spec" style="border:0"><span>B (Boron)</span><b>0.5%</b></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="max-width:1200px;margin:0 auto;padding:0 48px 72px">
+                <div
+                    style="background:#e0a93b;border-radius:28px;padding:36px 40px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap">
+                    <div>
+                        <h2 style="margin:0 0 6px;font-size:28px">Need Rhodopotash for your crop?</h2>
+                        <div style="font-size:15px">Cotton, Soyabean, Paddy, Chilli, Vegetables, Fruits, Banana, Orange,
+                            Mosambi and more.</div>
+                    </div>
+                    <a class="btn" href="#">Get a quote</a>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div style="background:#1f2e27;color:#cdbf9f;padding:40px 48px;font-size:14px;line-height:1.6">
+                <div
+                    style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap">
+                    <div style="max-width:320px">
+                        <div class="pop" style="font-weight:700;font-size:20px;color:#f6efe0">KORDE <span
+                                style="font-size:11px;font-weight:500;letter-spacing:.14em">GLOBAL TRADE</span></div>
+                        <p style="margin:10px 0 0">Biological and organic agricultural solutions designed around
+                            healthier soil, better nutrient availability, crop-specific management, and sustainable
+                            farming.</p>
+                    </div>
+                    <div>info@kordeglobal.com<br>Global Headquarters, Agri-Tech Park</div>
+                </div>
+            </div>
+
+        </div>
+    </x-dc>
+    <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":2600}}'>
+class Component extends DCLogic {
+renderVals() { return {}; }
+}
+</script>
+</body>
+
+</html>

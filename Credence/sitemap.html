@@ -1,0 +1,169 @@
+<style>
+    :root {
+        --sec-bg: #33443a;
+        --circle-bg: #465b4e;
+        --text-white: #ffffff;
+        --text-dim: rgba(255, 255, 255, .78);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Poppins', 'Segoe UI', Arial, sans-serif;
+        background: #fff;
+    }
+
+    .korde-circles {
+        background: var(--sec-bg);
+        padding: 21px 40px 21px;
+        overflow: hidden;
+    }
+
+    .korde-circles-inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        display: flex;
+        gap: 150px;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .korde-circle {
+        border-radius: 50%;
+        background: radial-gradient(circle at 50% 35%, var(--circle-bg), var(--sec-bg) 113%);
+        width: 340px;
+        height: 340px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .korde-circle-inner {
+        padding: 0 46px;
+    }
+
+    .korde-circle h3 {
+        color: var(--text-white);
+        font-size: 22px;
+        font-weight: 700;
+        margin: 0 0 16px;
+    }
+
+    .korde-circle p {
+        color: var(--text-dim);
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+    /* side circles sit higher, middle circle is bigger and sits lower,
+   with negative margins pulling them together so they overlap */
+    .korde-circle--side {
+        margin-top: 0;
+        z-index: 1;
+    }
+
+    .korde-circle--mid {
+        width: 400px;
+        height: 400px;
+        margin-top: 110px;
+        margin-left: -70px;
+        margin-right: -70px;
+        z-index: 2;
+    }
+
+    .korde-circle--mid .korde-circle-inner {
+        padding: 0 54px;
+    }
+
+    @media (max-width:1100px) {
+        .korde-circle {
+            width: 280px;
+            height: 280px;
+        }
+
+        .korde-circle--mid {
+            width: 330px;
+            height: 330px;
+            margin-left: -50px;
+            margin-right: -50px;
+            margin-top: 90px;
+        }
+
+        .korde-circle-inner {
+            padding: 0 30px;
+        }
+    }
+
+    @media (max-width:820px) {
+        .korde-circles {
+            padding: 70px 20px 60px;
+        }
+
+        .korde-circles-inner {
+            flex-direction: column;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .korde-circle,
+        .korde-circle--mid {
+            width: min(320px, 80vw);
+            height: min(320px, 80vw);
+            margin: 0;
+        }
+
+        .korde-circle-inner,
+        .korde-circle--mid .korde-circle-inner {
+            padding: 0 32px;
+        }
+    }
+
+    @media (max-width:400px) {
+
+        .korde-circle,
+        .korde-circle--mid {
+            width: 88vw;
+            height: 88vw;
+        }
+    }
+</style>
+
+<!-- KORDE CIRCLES : paste into a WordPress Custom HTML block / Elementor HTML widget -->
+<section class="korde-circles">
+    <div class="korde-circles-inner">
+
+        <div class="korde-circle korde-circle--side">
+            <div class="korde-circle-inner">
+                <h3>Biofertilizers</h3>
+                <p>Biofertilizers contain beneficial microorganisms, including fungi and bacteria, that support plant
+                    growth and nutrient availability. They help improve the natural biological activity of the soil and
+                    support healthy root development.</p>
+            </div>
+        </div>
+
+        <div class="korde-circle korde-circle--mid">
+            <div class="korde-circle-inner">
+                <h3>Organic Agricultural Inputs</h3>
+                <p>Our organic agricultural inputs are derived from natural sources, including plant materials, animal
+                    matter, and minerals. They are designed to support soil health and provide nutrients through natural
+                    processes.</p>
+            </div>
+        </div>
+
+        <div class="korde-circle korde-circle--side">
+            <div class="korde-circle-inner">
+                <h3>Microbial Nutrient Solutions</h3>
+                <p>Our microbial nutrient solutions use beneficial microorganisms to help make nutrients such as
+                    nitrogen, phosphorus, and potassium more available to crops. They support natural nutrient cycling
+                    and help farmers manage soil fertility.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
